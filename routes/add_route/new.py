@@ -8,7 +8,7 @@
 from flask import jsonify, request
 from routes.router import app,resource,response,req,reqpar
 
-from app.services.sproducts import sProducts
+from app.services.Sproducts import Sproducts
 
 import json
 
@@ -25,9 +25,8 @@ class new(resource):
         
     def get(self):             
         objectoJson = {'Mensaje':None,'Resultados':[]}      
-        try:   
-            print("Process Load")         
-            retorno = sProducts().GET_ALL_PRODUCTS()
+        try:            
+            retorno = Sproducts().GET_ALL_PRODUCTS()
             listaJson = json.dumps(retorno)
             jsonTemplate = response(listaJson,status=200, mimetype='application/json')
             jsonTemplate.headers['Access-Control-Allow-Origin'] = '*'
@@ -37,30 +36,33 @@ class new(resource):
             print(exp)
             return {'Mensaje':'Problema interno'},500 
     
-#    def post(self):
- #       data = request.get_json()
-#     print(data)        
- #       return data
 
     def post(self):
-        methdPost = request.get_json()
         try:
-            print("Insert Load", methdPost["Creado_Por"])
+            methdPost = request.get_json()
+            Categoria_id=methdPost["Categoria_id"]
+            Titulo=methdPost["Titulo"]
+            Descripcion=methdPost["Descripcion"]
+            Estado=methdPost["Estado"]
+            Referencia_Amazon=methdPost["Referencia_Amazon"]
+            Creado_Por=methdPost["Creado_Por"]
+            Modificado_Por=methdPost["Modificado_Por"]
+            Fecha_Creacion=methdPost["Fecha_Creacion"]
+            Fecha_Actualizacion=methdPost["Fecha_Actualizacion"]
 
-            data = sProducts(
-                Categoria_id=methdPost["Categoria_id"]
-                ,Titulo=methdPost["Titulo"]
-                ,Descripcion=methdPost["Descripcion"]
-                ,Estado=methdPost["Estado"]
-                ,Referencia_Amazon=methdPost["Referencia_Amazon"]
-                ,Creado_Por=methdPost["Creado_Por"]
-                ,Modificado_Por=methdPost["Modificado_Por"]
-                ,Fecha_Creacion=methdPost["Fecha_Creacion"]
-                ,Fecha_Actualizacion=methdPost["Fecha_Actualizacion"]
+            Sproducts(
+                Categoria_id= Categoria_id
+                ,Titulo=Titulo
+                ,Descripcion=Descripcion
+                ,Estado=Estado
+                ,Referencia_Amazon=Referencia_Amazon
+                ,Creado_Por=Creado_Por
+                ,Modificado_Por=Modificado_Por
+                ,Fecha_Creacion=Fecha_Creacion
+                ,Fecha_Actualizacion=Fecha_Actualizacion
                 ).INSERT_PRODUCT()
             print("Insert call")
-            print(data)        
-            return data
+            
         except Exception as error:
             print(error)
             return {'Mensaje':'Problema interno'},500
