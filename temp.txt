@@ -1,25 +1,4 @@
 
-        INSERT INTO tbl_Productos_pruebas_mk
-                (
-                    Categoria_id ,Titulo, Descripcion, Precio, Precio_Descuento, Stock_Actual, Stock_Limite
-                    ,Estado ,Referecia_Amazon, Peso,Alto,Largo,Ancho,Color,Talla,Porcentaje,Precio_cop,Creado_por,Modicado_por,Fecha_Creacion,Fecha_Actualizacion,Codigo,breadcrum,GUID,SKU,informacion,imagenes_1,imagenes_2,imagenes_3,imagenes_4,imagenes_5,imagenes_6,imagenes_7
-                )
-        VALUES
-        (
-            '{Categoria_id}','{Titulo}','{Descripcion}','{Precio}','{Precio_Descuento}','{Stock_Actual}','{Stock_Limite}','{Estado}','{Referecia_Amazon}','{Peso}','{Alto}','{Largo}','{Ancho}','{Color}','{Talla}','{Porcentaje}','{Precio_cop}','{Creado_por}','{Modicado_por}','{Fecha_Creacion}','{Fecha_Actualizacion}','{Codigo}','{breadcrum}','{GUID}','{SKU}','{informacion}','{Imagenes_1}','{Imagenes_2}','{Imagenes_3}','{Imagenes_4}','{Imagenes_5}','{Imagenes_6}','{Imagenes_7}'
-
-        )
-        
-        '{Categoria_id}','{Titulo}','{Descripcion}','{Precio}','{Precio_Descuento}','{Stock_Actual}','{Stock_Limite}','{Estado}','{Referencia_Amazon}','{Peso}','{Alto}','{Largo}','{Ancho}','{Color}','{Talla}','{Porcentaje}','{Precio_cop}','{Creado_Por}','{Modificado_Por}','{Fecha_Creacion}','{Fecha_Actualizacion}','{Codigo}','{breadcrum}','{GUID}','{SKU}','{informacion}','{Imagenes_1}','{Imagenes_2}','{Imagenes_3}','{Imagenes_4}','{Imagenes_5}','{Imagenes_6}','{Imagenes_7}
-
-         (
-                    Categoria_id ,Titulo, Descripcion, Precio, Precio_Descuento, Stock_Actual, Stock_Limite
-                    ,Estado ,Referencia_Amazon, Peso,Alto,Largo,Ancho,Color,Talla,Porcentaje,Precio_cop,Creado_Por,Modificado_Por,Fecha_Creacion,Fecha_Actualizacion,Codigo,breadcrum,GUID,SKU,informacion,imagenes_1,imagenes_2,imagenes_3,imagenes_4,imagenes_5,imagenes_6,imagenes_7
-                )
-                VALUES
-                (
-                    '{Categoria_id}','{Titulo}','{Descripcion}','{Precio}','{Precio_Descuento}','{Stock_Actual}','{Stock_Limite}','{Estado}','{Referencia_Amazon}','{Peso}','{Alto}','{Largo}','{Ancho}','{Color}','{Talla}','{Porcentaje}','{Precio_cop}','{Creado_Por}','{Modificado_Por}','{Fecha_Creacion}','{Fecha_Actualizacion}','{Codigo}','{breadcrum}','{GUID}','{SKU}','{informacion}','{Imagenes_1}','{Imagenes_2}','{Imagenes_3}','{Imagenes_4}','{Imagenes_5}','{Imagenes_6}','{Imagenes_7}'
-
-                )
-
-                https://unipython.com/como-hacer-paso-a-paso-una-api-restful-en-flask-con-python/
+0 = STOP
+1 = DELETE
+2 = ACTIVO
