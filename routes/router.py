@@ -24,7 +24,7 @@ from routes.add_route.Rproduct import Rproduct
 #add-rutas
 
 api.add_resource(get_categorias,'/Categorias') 
-api.add_resource(Rproduct,'/rproduct', methods=['GET', 'POST', 'DELETE']) 
+api.add_resource(Rproduct,'/rproduct', methods=['GET', 'POST', 'DELETE', 'PUT']) 
 #       ----    FIN DE LAS RUTAS PROYECTO  ----        #
 
 @app.route('/', methods=['GET', 'POST'])

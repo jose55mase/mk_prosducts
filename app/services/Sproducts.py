@@ -3,6 +3,7 @@ import pyodbc
 from app.controller.connectionString import return_conection_string
 from flask import jsonify, request
 import json
+import time
 #from flask_sqlalchemy import SQLAlchemy
 
 #   Operaciones SQL  con categorias
@@ -65,7 +66,7 @@ class Sproducts:
         self.__Precio_cop = Precio_cop
         self.__Creado_Por = Creado_Por
         self.__Modificado_Por = Modificado_Por
-        self.__Fecha_Creacion = Fecha_Creacion
+        self.__Fecha_Creacion = Fecha_Creacion if Fecha_Creacion is not None else time.strftime("%c")
         self.__Fecha_Actualizacion = Fecha_Actualizacion
         self.__Codigo = Codigo
         self.__breadcrum = breadcrum
@@ -100,7 +101,6 @@ class Sproducts:
             array.append(json)
             json = {}
         return array
-
     # Insertar producto
     def INSERT_PRODUCT(self):
         conexion  = pyodbc.connect(self.__constring,autocommit=True,timeout=10)
@@ -142,7 +142,7 @@ class Sproducts:
                     )
         executeQuery = cursor.execute(sql)
         return {"Status":" Ok "}
-
+    # Actualizaer produrctos
     def UPDATE_PRODUCT(self):
         conexion  = pyodbc.connect(self.__constring,autocommit=True,timeout=10)
         cursor = conexion.cursor()
@@ -182,9 +182,11 @@ class Sproducts:
             ,Imagenes_6=self.__Imagenes_6
             ,Imagenes_7=self.__Imagenes_7
         )
+
+        
         cursor.execute(sql)
         return {"Status":" Ok "}
-
+    # Eliminar productos ( Estado 2 )
     def DELETE_PRODUCT(self):
         conexion = pyodbc.connect(self.__constring,autocommit=True,timeout=10)
         cursor = conexion.cursor()
@@ -193,12 +195,12 @@ class Sproducts:
             ,Estado=self.__Estado
         )
         cursor.execute(sql)
-    
+    # Parar producto ( Estado 0 )
     def STOP_PRODUCT(self):
         conexion = pyodbc.connect(self.__constring,autocommit=True,timeout=10)
         cursor = conexion.cursor()
-        sql = "UPDATE tbl_Productos_pruebas_mk SET Estado = 0 WHERE Producto_Id = '{Producto_Id}' AND Estado = 2".format(
+        sql = "UPDATE tbl_Productos_pruebas_mk SET Estado = 0 WHERE Producto_Id = '{Producto_Id}'".format(
             Producto_Id = self.__Producto_Id
-            ,Estado=self.__Estado
         )
         cursor.execute(sql)
+        print("SQL : ",sql)
