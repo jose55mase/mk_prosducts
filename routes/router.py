@@ -15,24 +15,26 @@ req = request
 response = Response
 reqpar = reqparse
 cors = CORS(app, resources={r"/*": {"origins": "*","headers":"X-Custom-Header"}})
- 
+
 #Importando todas las clases de rutas y aniadendolas
 from routes.add_route.rcategorias import get_categorias
 from routes.add_route.Rproduct import Rproduct
+from routes.add_route.RplanesCategory import RplanesCategory
 
 #       ----    RUTAS DEL PROYECTO  ----        #
 #add-rutas
 
-api.add_resource(get_categorias,'/Categorias') 
-api.add_resource(Rproduct,'/rproduct', methods=['GET', 'POST', 'DELETE', 'PUT']) 
+api.add_resource(get_categorias,'/Categorias')
+api.add_resource(Rproduct,'/router_product', methods=['GET', 'POST', 'DELETE', 'PUT'])
+api.add_resource(RplanesCategory,'/router_planesCategory', methods=['GET']) 
 #       ----    FIN DE LAS RUTAS PROYECTO  ----        #
 
 @app.route('/', methods=['GET', 'POST'])
-def home(): 
+def home():
     if request.method == 'POST':
         return '¿que estas buscando? :)'
     else:
-        return render_template("index.html") 
+        return render_template("index.html")
 
 @app.errorhandler(404)
 def page_not_found(error):
