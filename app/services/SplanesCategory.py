@@ -13,17 +13,22 @@ class SplanesCategory:
 
     def GET_ALL_PUBLIC_CATEGORY(self):
         connection = pyodbc.connect(self.__constring,autocommit=True,timeout=10)
-        print("Joxe :  ")
         cursor = connection.cursor()
         requestsHandle = None
-        while connection:
-            sql = "SELECT name FROM public_categories WHERE parent_id IS NULL"
-            cursor.execute(sql)
-            requestsHandle = cursor.fetchall()
+
+
+        #sql = "SELECT id,name,parent_id FROM public_categories WHERE parent_id IS NULL"
+        sql = "SELECT id,name,parent_id FROM public_categories"
+        cursor.execute(sql)
+        requestsHandle = cursor.fetchall()
+
         _array = []
         _json = {}
+
         for element in requestsHandle:
+            _json["id"] = element.id
             _json["name"] = element.name
+            _json["parent_id"] = element.parent_id
             _array.append(_json)
             _json = {}
         return _array

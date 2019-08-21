@@ -1,10 +1,10 @@
 import time
 class ModelProduct:
     def __init__(self, methdPost):
-        
+
         self.methdPost = methdPost
-        self.methdPost.setdefault('Producto_Id', -1)
-        
+        #self.methdPost.setdefault('Producto_Id', -1)
+
         self.Categoria_id = self.methdPost["Categoria_id"]
         self.Titulo=self.methdPost["Titulo"]
         self.Descripcion=self.methdPost["Descripcion"]

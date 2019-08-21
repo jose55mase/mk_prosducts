@@ -20,13 +20,16 @@ cors = CORS(app, resources={r"/*": {"origins": "*","headers":"X-Custom-Header"}}
 from routes.add_route.rcategorias import get_categorias
 from routes.add_route.Rproduct import Rproduct
 from routes.add_route.RplanesCategory import RplanesCategory
+from routes.add_route.Rusers import Rusers
+
 
 #       ----    RUTAS DEL PROYECTO  ----        #
 #add-rutas
 
 api.add_resource(get_categorias,'/Categorias')
 api.add_resource(Rproduct,'/router_product', methods=['GET', 'POST', 'DELETE', 'PUT'])
-api.add_resource(RplanesCategory,'/router_planesCategory', methods=['GET']) 
+api.add_resource(RplanesCategory,'/router_planesCategory', methods=['GET'])
+api.add_resource(Rusers,'/router_userss', methods=['GET']) 
 #       ----    FIN DE LAS RUTAS PROYECTO  ----        #
 
 @app.route('/', methods=['GET', 'POST'])

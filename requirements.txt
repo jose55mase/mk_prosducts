@@ -26,3 +26,6 @@ SQLAlchemy==1.3.3
 visitor==0.1.3
 waitress==1.3.0
 Werkzeug==0.15.2
+
+#Upload IMGEN
+Pillow==2.2.1

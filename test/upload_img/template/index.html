@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/up" method="POST", enctype="multipart/form-data" >
+        <label for="name">name:</label>
+        <input type="text" name="name" id="name" required>
+        <label for="file">file</label>
+        <input type="file" name="file1" id="file" required>
+        <input type="file" name="file2" id="file" required>
+        <button type="submit">Save</button>
+    </form>
+    {% if name %}
+        <h1>Hola {{name}}</h1>
+    {% endif %}
+
+    <hr>
+    or download
+    <hr>
+    
+
+    <form action="/download" method="post">
+    <label for="url">URL: </label>
+    <input type="text" name="url" id="url" required>
+    <button type="submit">Download</button>
+    </form>
+</body>
+</html>
