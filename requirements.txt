@@ -14,7 +14,7 @@ Flask-SQLAlchemy==2.4.0
 gunicorn==19.9.0
 html2text==2018.1.9
 itsdangerous==1.1.0
-Jinja2==2.10.1
+Jinja2==2.11.3
 MarkupSafe==1.1.1
 Paste==3.0.8
 pycparser==2.19
