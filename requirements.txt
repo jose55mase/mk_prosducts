@@ -28,4 +28,4 @@ waitress==1.3.0
 Werkzeug==0.15.2
 
 #Upload IMGEN
-Pillow==2.2.1
+Pillow==8.3.2
